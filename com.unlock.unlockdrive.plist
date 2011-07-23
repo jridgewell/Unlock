@@ -4,13 +4,13 @@
 	<dict>
 	<key>Label</key>
 	<string>com.unlock.unlockdrive</string>
+	<key>LaunchOnlyOnce</key>
+	<true/>
 	<key>OnDemand</key>
 	<false/>
 	<key>Program</key>
 	<string>/Library/LaunchDaemons/Unlock.sh</string>
 	<key>RunAtLoad</key>
-	<true/>
-	<key>LaunchOnlyOnce</key>
 	<true/>
 	<key>ServiceDescription</key>
 	<string>Unlock drives</string>
