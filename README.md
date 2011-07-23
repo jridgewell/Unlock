@@ -1,7 +1,7 @@
 Unlock
 =========
 
-http://github.com/jridgewell/unlock
+https://github.com/jridgewell/unlock
 
 ## Description
 
@@ -23,5 +23,5 @@ The LaunchDaemon will allow the system to unlock and mount CoreStorage encrypted
 If have a problem, file a [bug report][issue] or fix it and submit [pull request][pull].
 
 [repo]: https://github.com/jridgewell/unlock/tarball/master
-[issue]: http://github.com/jridgewell/unlock/issues
-[pull]: http://github.com/jridgewell/unlock/pulls
+[issue]: https://github.com/jridgewell/unlock/issues
+[pull]: https://github.com/jridgewell/unlock/pulls
