@@ -5,7 +5,7 @@ https://github.com/jridgewell/unlock
 
 ## Description
 
-The LaunchDaemon will allow the system to unlock and mount CoreStorage encrypted drives during boot (and before a User logs in). In other words, this allows you to log in as a User whose user directory is on an encrypted secondary volume without any problems.
+The LaunchDaemon will allow the system to unlock and mount CoreStorage encrypted drives during boot (and before a User logs in). In other words, this allows you to log in as a User whose user directory is on an encrypted secondary disk without any problems.
 
 ## Install
 
