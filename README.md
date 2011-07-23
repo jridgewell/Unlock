@@ -16,7 +16,7 @@ The LaunchDaemon will allow the system to unlock and mount CoreStorage encrypted
 
 ## Uninstall
 
-- Run `uninstall.sh` in the terminal (you'll be asked for your password) to remove all traces from the system.
+- Run `./uninstall.sh` in the terminal (you'll be asked for your password) to remove all traces from the system.
 
 ## Problems?
 
