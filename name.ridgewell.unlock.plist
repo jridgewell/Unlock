@@ -3,13 +3,13 @@
 <plist version="1.0">
 	<dict>
 	<key>Label</key>
-	<string>com.unlock.unlockdrive</string>
+	<string>name.ridgewell.unlock</string>
 	<key>LaunchOnlyOnce</key>
 	<true/>
 	<key>OnDemand</key>
 	<false/>
 	<key>Program</key>
-	<string>/Library/LaunchDaemons/Unlock.sh</string>
+	<string>/Library/LaunchDaemons/unlock.sh</string>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>ServiceDescription</key>
