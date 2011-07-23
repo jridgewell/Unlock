@@ -10,13 +10,21 @@ The LaunchDaemon will allow the system to unlock and mount CoreStorage encrypted
 ## Install
 
 - Download and extract the [repo][].
-- Edit `files/unlock.sh`, replacing \[UUID\] with the UUID of the CoreStorage Logical Volume you are trying to unlock (run `diskutil cs list` and search for the LV UUID; it will be a string like: "497C771B-63FE-461F-AD7B-0BEF9A6BA718"). Also replace \[PASSWORD\] with the passphrase you used to encrypt the drive.
-- Run `./install.sh` in the terminal (you'll be asked for your password).
-- Everything should be set up! Restart your computer to test.
+- Find the UUID of the CoreStorage Logical Volume you are trying to unlock (run `diskutil cs list` in the terminal and search for the LV UUID; it will be a string like: "497C771B-63FE-461F-AD7B-0BEF9A6BA718").
+- Run `./install.sh` in the terminal
+- Enter the UUID when asked.
+- Enter the passphrase you used to encrypt the drive when asked.
+- Finally, enter your login password when asked.
+- Everything should be set up! Restart your computer and log in to test.
 
 ## Uninstall
 
-- Run `./uninstall.sh` in the terminal (you'll be asked for your password) to remove all traces from the system.
+- Run `./uninstall.sh` in the terminal (you'll be asked for your login password) to remove all traces from the system.
+
+## Limitations
+
+- You're passphrase is stored in plain text. While not the best option, you're boot drive is already encrypted, meaning someone must already have a login password in order to read it.
+- You're passphrase __cannot__ contain a '/' (forward slash). 
 
 ## Problems?
 
