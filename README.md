@@ -18,7 +18,7 @@ The LaunchDaemon will allow the system to unlock and mount CoreStorage encrypted
 
 ## Uninstall
 
-- Run `https://raw.github.com/jridgewell/Unlock/curlinstall/uninstall.sh` in the terminal (you'll be asked for your login password) to remove all traces from the system.
+- Run `bash <(curl -s https://raw.github.com/jridgewell/Unlock/curlinstall/uninstall.sh)` in the terminal (you'll be asked for your login password) to remove all traces from the system.
 
 ## Limitations
 
