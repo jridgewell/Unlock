@@ -14,8 +14,8 @@ fi
 mkdir tmp_install_unlock
 cd tmp_install_unlock
 echo "Downloading necessary files..."
-curl https://raw.github.com/jridgewell/Unlock/keychain/files/name.ridgewell.unlock.plist -o name.ridgewell.unlock.plist
-curl https://raw.github.com/jridgewell/Unlock/keychain/files/name.ridgewell.unlock.sh -o name.ridgewell.unlock.sh.tmp
+curl https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock.plist -o name.ridgewell.unlock.plist
+curl https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock.sh -o name.ridgewell.unlock.sh.tmp
 echo "Done downloading!"
 echo ""
 
