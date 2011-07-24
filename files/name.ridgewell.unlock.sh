@@ -6,5 +6,5 @@ if [ "`diskutil cs list | grep Locked`" ]
 		PASSWORD=`security 2>&1 >/dev/null find -gs name.ridgewell.unlock "/Library/Keychains/System.keychain" \
 			| ruby -e 'print $1 if STDIN.gets =~ /^password: "(.*)"$/'`
 		echo "Unlocking volume."
-		diskutil cs unlockVolume 32585426-99F0-4991-965C-DB5C809400B5 -passphrase $PASSWORD
+		diskutil cs unlockVolume UUID -passphrase "$PASSWORD"
 fi
