@@ -20,6 +20,10 @@ Unlock will allow the system to unlock and mount CoreStorage encrypted volumes d
 
 - Run `bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/uninstall.sh)` in the terminal (you'll be asked for your login password) to remove all traces from the system.
 
+## How does it work?
+
+During the install process, a LaunchDaemon is installed to `/Library/LaunchDaemons` that runs when the system is still starting up. The daemon starts a program that requests the passphrase to unlock the volume from the system's secure keychain. After the keychain returns the passphrase, the program unlocks the volume and allows the system to use the volume like a normal one. All of this completes before the system loads any information from the User's home directory, allowing a normal log in. 
+
 ## Problems?
 
 If you have a problem, file a [bug report][issue] or fix it and submit a [pull request][pull].
