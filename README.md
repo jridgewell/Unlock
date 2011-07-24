@@ -27,7 +27,7 @@ The LaunchDaemon will allow the system to unlock and mount CoreStorage encrypted
 
 ## Problems?
 
-If have a problem, file a [bug report][issue] or fix it and submit a [pull request][pull].
+If you have a problem, file a [bug report][issue] or fix it and submit a [pull request][pull].
 
 [issue]: https://github.com/jridgewell/unlock/issues
 [pull]: https://github.com/jridgewell/unlock/pulls

@@ -1,18 +1,23 @@
 #!/bin/bash
+
+# Make a temporary directory so that original files are not changed
+mkdir tmp_install_unlock
+cd tmp_install_unlock
+echo "Downloading necessary files..."
+curl https://raw.github.com/jridgewell/Unlock/curlinstall/files/name.ridgewell.unlock.plist -o name.ridgewell.unlock.plist
+curl https://raw.github.com/jridgewell/Unlock/curlinstall/files/unlock.sh -o unlock.sh
+echo "Done downloading!"
+echo ""
+
+echo "--------------------------"
 echo "What is the UUID of the drive?"
 read uuid
 echo "And the passphrase used to encrypt it?"
 read password
 echo ""
+
 echo "--------------------------"
 echo "Installing..."
-
-# Make a temporary directory so that original files are not changed
-mkdir tmp_install_unlock
-cd tmp_install_unlock
-curl https://raw.github.com/jridgewell/Unlock/curlinstall/files/name.ridgewell.unlock.plist -o name.ridgewell.unlock.plist
-curl https://raw.github.com/jridgewell/Unlock/curlinstall/files/unlock.sh -o unlock.sh
-
 # Preform some sed jiggery to change required values
 sed "s/UUID/$uuid/" unlock.sh > unlock.sh.tmp
 rm unlock.sh
