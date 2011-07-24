@@ -34,3 +34,7 @@ sudo chmod 755 /Library/LaunchDaemons/unlock.sh
 # Cleanup
 cd ..
 rm -r tmp_install_unlock
+
+echo ""
+echo "--------------------------"
+echo "Installed!"
