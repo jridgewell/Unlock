@@ -3,8 +3,9 @@ if [ "`whoami`" != "root" ]
 	then
 		echo "Attempting to re-run as root..."
 		curl https://raw.github.com/jridgewell/Unlock/keychain/install.sh -o install.sh
-		sudo ./install.sh
-		#rm install.sh
+		chmod +x install.sh
+		sudo bash ./install.sh
+		rm install.sh
 		exit
 fi
 
