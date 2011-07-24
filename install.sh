@@ -2,7 +2,7 @@
 if [ "`whoami`" != "root" ]
 	then
 		echo "Attempting to re-run as root..."
-		curl https://raw.github.com/jridgewell/Unlock/keychain/install.sh -o install.sh
+		curl https://raw.github.com/jridgewell/Unlock/master/install.sh -o install.sh
 		chmod +x install.sh
 		echo ""
 		sudo bash ./install.sh
