@@ -13,6 +13,6 @@
 		<key>RunAtLoad</key>
 		<true/>
 		<key>ServiceDescription</key>
-		<string>Unlock drives</string>
+		<string>Unlock encrypted volumes at boot</string>
 	</dict>
 </plist>

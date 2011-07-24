@@ -10,7 +10,7 @@ echo "Done downloading!"
 echo ""
 
 echo "--------------------------"
-echo "What is the UUID of the drive?"
+echo "What is the UUID of the volume?"
 read uuid
 echo "And the passphrase used to encrypt it?"
 read password
