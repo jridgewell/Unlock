@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "What is the UUID of the drive?"
 read uuid
 echo "And the passphrase used to encrypt it?"
@@ -7,21 +8,24 @@ echo "--------------------------"
 echo "Installing..."
 
 # Make a temporary directory so that original files are not changed
-mkdir ./tmp
-cp ./files/* ./tmp/
+mkdir tmp_install_unlock
+cd tmp_install_unlock
+curl https://raw.github.com/jridgewell/Unlock/curlinstall/files/name.ridgewell.unlock.plist -o name.ridgewell.unlock.plist
+curl https://raw.github.com/jridgewell/Unlock/curlinstall/files/unlock.sh -o unlock.sh
 
 # Preform some sed jiggery to change required values
-sed "s/UUID/$uuid/" ./tmp/unlock.sh > ./tmp/unlock.sh.tmp
-rm ./tmp/unlock.sh
-sed "s/PASSWORD/$password/" ./tmp/unlock.sh.tmp > ./tmp/unlock.sh
-rm ./tmp/unlock.sh.tmp
+sed "s/UUID/$uuid/" unlock.sh > unlock.sh.tmp
+rm unlock.sh
+sed "s/PASSWORD/$password/" unlock.sh.tmp > unlock.sh
+rm unlock.sh.tmp
 
 # Move them to the LaunchDaemons dir, and make sure they have the right permissions
-sudo mv ./tmp/* /Library/LaunchDaemons/
+sudo mv ./* /Library/LaunchDaemons/
 sudo chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
 sudo chown root:wheel /Library/LaunchDaemons/unlock.sh
 sudo chmod 644 /Library/LaunchDaemons/name.ridgewell.unlock.plist
 sudo chmod 755 /Library/LaunchDaemons/unlock.sh
 
 # Cleanup
-rm -r ./tmp
+cd ..
+rm -r tmp_install_unlock
