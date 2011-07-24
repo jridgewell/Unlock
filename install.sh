@@ -1,4 +1,11 @@
 #!/bin/bash
+if [ "`whoami`" != "root" ]
+	then
+		echo "Attempting to re-run as root..."
+#		sudo bash ./install.sh
+		sudo bash<(curl -s https://raw.github.com/jridgewell/Unlock/keychain/install.sh)
+		exit
+fi
 
 # Make a temporary directory so that original files are not changed
 mkdir tmp_install_unlock
@@ -18,20 +25,19 @@ echo ""
 
 echo "--------------------------"
 echo "Installing..."
-# Add the password to the System keychain
-sudo security add -a "$uuid" -D "Encrypted Volume Password" -l "Unlock" -s "name.ridgewell.unlock" \
-	-w "$password" -T "/Library/LaunchDaemons/name.ridgewell.unlock.sh" "/Library/Keychains/System.keychain"
-
 # Preform some sed jiggery to change required values
 sed "s/UUID/$uuid/" name.ridgewell.unlock.sh.tmp > name.ridgewell.unlock.sh
 rm name.ridgewell.unlock.sh.tmp
 
 # Move them to the LaunchDaemons dir, and make sure they have the right permissions
-sudo mv ./* /Library/LaunchDaemons/
-sudo chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
-sudo chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.sh
-sudo chmod 644 /Library/LaunchDaemons/name.ridgewell.unlock.plist
-sudo chmod 755 /Library/LaunchDaemons/name.ridgewell.unlock.sh
+mv ./* /Library/LaunchDaemons/
+chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
+chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.sh
+chmod 644 /Library/LaunchDaemons/name.ridgewell.unlock.plist
+chmod 755 /Library/LaunchDaemons/name.ridgewell.unlock.sh
+# Add the password to the System keychain
+security add -a "$uuid" -D "Encrypted Volume Password" -l "Unlock" -s "name.ridgewell.unlock" \
+	-w "$password" -T "/Library/LaunchDaemons/name.ridgewell.unlock.sh" "/Library/Keychains/System.keychain"
 
 # Cleanup
 cd ..
