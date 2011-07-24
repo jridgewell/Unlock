@@ -3,7 +3,9 @@ if [ "`whoami`" != "root" ]
 	then
 		echo "Attempting to re-run as root..."
 #		sudo bash ./install.sh
-		sudo $0
+		curl https://raw.github.com/jridgewell/Unlock/keychain/install.sh -o unlock_install.sh
+		sudo ./unlock_install.sh
+		rm unlock_install.sh
 		exit
 fi
 
@@ -37,7 +39,7 @@ chmod 644 /Library/LaunchDaemons/name.ridgewell.unlock.plist
 chmod 755 /Library/LaunchDaemons/name.ridgewell.unlock.sh
 # Add the password to the System keychain
 security add -a "$uuid" -D "Encrypted Volume Password" -l "Unlock" -s "name.ridgewell.unlock" \
-	-w "$password" -T "/Library/LaunchDaemons/name.ridgewell.unlock.sh" "/Library/Keychains/System.keychain"
+	-w "$password" -T "/usr/bin/security" "/Library/Keychains/System.keychain"
 
 # Cleanup
 cd ..
