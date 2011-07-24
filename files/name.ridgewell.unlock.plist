@@ -9,7 +9,7 @@
 		<key>OnDemand</key>
 		<false/>
 		<key>Program</key>
-		<string>/Library/LaunchDaemons/unlock.sh</string>
+		<string>/Library/LaunchDaemons/name.ridgewell.unlock.sh</string>
 		<key>RunAtLoad</key>
 		<true/>
 		<key>ServiceDescription</key>

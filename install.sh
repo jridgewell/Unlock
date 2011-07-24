@@ -4,8 +4,8 @@
 mkdir tmp_install_unlock
 cd tmp_install_unlock
 echo "Downloading necessary files..."
-curl https://raw.github.com/jridgewell/Unlock/curlinstall/files/name.ridgewell.unlock.plist -o name.ridgewell.unlock.plist
-curl https://raw.github.com/jridgewell/Unlock/curlinstall/files/unlock.sh -o unlock.sh
+curl https://raw.github.com/jridgewell/Unlock/keychain/files/name.ridgewell.unlock.plist -o name.ridgewell.unlock.plist
+curl https://raw.github.com/jridgewell/Unlock/keychain/files/name.ridgewell.unlock.sh -o name.ridgewell.unlock.sh.tmp
 echo "Done downloading!"
 echo ""
 
@@ -18,18 +18,20 @@ echo ""
 
 echo "--------------------------"
 echo "Installing..."
+# Add the password to the System keychain
+sudo security add -a "$uuid" -D "Encrypted Volume Password" -l "Unlock" -s "name.ridgewell.unlock" \
+	-w "$password" -T "/Library/LaunchDaemons/name.ridgewell.unlock.sh" "/Library/Keychains/System.keychain"
+
 # Preform some sed jiggery to change required values
-sed "s/UUID/$uuid/" unlock.sh > unlock.sh.tmp
-rm unlock.sh
-sed "s/PASSWORD/$password/" unlock.sh.tmp > unlock.sh
-rm unlock.sh.tmp
+sed "s/UUID/$uuid/" name.ridgewell.unlock.sh.tmp > name.ridgewell.unlock.sh
+rm name.ridgewell.unlock.sh.tmp
 
 # Move them to the LaunchDaemons dir, and make sure they have the right permissions
 sudo mv ./* /Library/LaunchDaemons/
 sudo chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
-sudo chown root:wheel /Library/LaunchDaemons/unlock.sh
+sudo chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.sh
 sudo chmod 644 /Library/LaunchDaemons/name.ridgewell.unlock.plist
-sudo chmod 755 /Library/LaunchDaemons/unlock.sh
+sudo chmod 755 /Library/LaunchDaemons/name.ridgewell.unlock.sh
 
 # Cleanup
 cd ..
