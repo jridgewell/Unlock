@@ -5,7 +5,7 @@ https://github.com/jridgewell/unlock
 
 ## Description
 
-Unlock will allow the system to unlock and mount CoreStorage encrypted volumes during boot (and before a User logs in). In other words, this allows you to log in as a User whose user directory is on an encrypted secondary volumes without any problems.
+Unlock will allow the system to unlock and mount CoreStorage encrypted volumes during boot (and before a User logs in). In other words, this allows you to log in as a User whose home directory is on an encrypted secondary volume without any problems.
 
 ## Install
 
