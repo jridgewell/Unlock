@@ -10,7 +10,7 @@ Unlock will allow the system to unlock and mount CoreStorage encrypted volumes d
 ## Install
 
 - Find the UUID of the CoreStorage Logical Volume you are trying to unlock (run `diskutil cs list` in the terminal and search for the LV UUID; it will be a string like: "497C771B-63FE-461F-AD7B-0BEF9A6BA718").
-- Run `bash <(curl -s https://raw.github.com/jridgewell/Unlock/keychain/install.sh)` in the terminal
+- Run `sudo bash <(curl -s https://raw.github.com/jridgewell/Unlock/keychain/install.sh)` in the terminal
 - Enter the UUID when asked.
 - Enter the passphrase you used to encrypt the volume when asked.
 - Finally, enter your login password when asked.
@@ -18,7 +18,7 @@ Unlock will allow the system to unlock and mount CoreStorage encrypted volumes d
 
 ## Uninstall
 
-- Run `bash <(curl -s https://raw.github.com/jridgewell/Unlock/keychain/uninstall.sh)` in the terminal (you'll be asked for your login password) to remove all traces from the system.
+- Run `sudo bash <(curl -s https://raw.github.com/jridgewell/Unlock/keychain/uninstall.sh)` in the terminal (you'll be asked for your login password) to remove all traces from the system.
 
 ## Limitations
 

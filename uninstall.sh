@@ -4,7 +4,7 @@ if [ "`whoami`" != "root" ]
 	then
 		echo "Attempting to re-run as root..."
 #		sudo bash ./uninstall.sh
-		sudo bash<(curl -s https://raw.github.com/jridgewell/Unlock/keychain/uninstall.sh)
+		sudo $0
 		exit
 fi
 
