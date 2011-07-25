@@ -8,7 +8,6 @@ if [ "`whoami`" != "root" ]
 		echo ""
 		sudo bash ./install.sh
 		rm install.sh
-        # sudo bash ./plist.sh
 		exit
 fi
 

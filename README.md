@@ -9,11 +9,12 @@ Unlock will allow the system to unlock and mount CoreStorage encrypted volumes d
 
 ## Install
 
-- Find the UUID of the CoreStorage Logical Volume you are trying to unlock (run `diskutil cs list` in the terminal and search for the LV UUID; it will be a string like: "497C771B-63FE-461F-AD7B-0BEF9A6BA718").
 - Run `bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/install.sh)` in the terminal
 - You will be asked for your login password.
-- Next, enter the UUID when asked.
-- Finally, enter the passphrase you used to encrypt the volume when asked.
+- Follow the prompts
+- - The program will find all CoreStorage volumes connected to your computer,
+- - It will then loop through those it finds and ask you if you want to unlock the volume.
+- - If you do, it will ask for the passphrase used to unlock that volume.
 - Everything should be set up! Restart your computer and log in to test.
 
 ## Uninstall
