@@ -15,6 +15,7 @@ Unlock will allow the system to unlock and mount CoreStorage encrypted volumes d
 - - The program will find all CoreStorage volumes connected to your computer,
 - - It will then loop through those it finds and ask you if you want to unlock the volume.
 - - If you do, it will ask for the passphrase used to unlock that volume.
+
 - Everything should be set up! Restart your computer and log in to test.
 
 ## Uninstall
