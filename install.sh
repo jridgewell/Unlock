@@ -70,8 +70,8 @@ if [ -e "UUIDs.txt" ]
         curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
         curl "https://raw.github.com/jridgewell/Unlock/dynamic/files/name.ridgewell.unlock-start.sh" >> name.ridgewell.unlock.sh
         while read LINE; do
-            echo "      diskutil cs unlockVolume UUID -passphrase \"\`security 2>&1 >/dev/null find -ga UUID \"/Library/Keychains/System.keychain\" | cut -d '\"' -f 2\`\" 2>/dev/null" | sed "s/UUID/$LINE/g" >> name.ridgewell.unlock.sh
-        done
+            echo "          diskutil cs unlockVolume UUID -passphrase \"\`security 2>&1 >/dev/null find -ga UUID \"/Library/Keychains/System.keychain\" | cut -d '\"' -f 2\`\" 2>/dev/null" | sed "s/UUID/$LINE/g" >> name.ridgewell.unlock.sh
+        done < "UUIDs.txt"
         curl "https://raw.github.com/jridgewell/Unlock/dynamic/files/name.ridgewell.unlock-end.sh" >> name.ridgewell.unlock.sh
         rm "UUIDs.txt"
         
