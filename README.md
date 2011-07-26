@@ -18,7 +18,7 @@ Like a many power users, I have two disks in my Macbook Pro. My startup volume i
 - Follow the prompts
   * The script will find all Core Storage encrypted volumes connected to your computer.
   * It will then loop through the volumes it finds and ask you if you want to unlock the volume during boot.
-  * If you do, it will then ask for the passphrase used to unlock that volume.
+    + If you do, it will then ask for the passphrase used to unlock that volume.
 - Everything should be set up! Restart your computer and log in to test.
 
 ## Uninstall
