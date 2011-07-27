@@ -1,16 +1,15 @@
 #!/bin/bash
-if [ "`whoami`" != "root" ]
-	then
-		# Run as root to avoid Console logging sudo commands.
-		echo "Attempting to re-run as root..."
-		curl https://raw.github.com/jridgewell/Unlock/dynamic/install.sh -o install.sh
-		chmod +x install.sh
-		echo "--------------------------"
-		echo ""
+if [ "`whoami`" != "root" ]; then
+# Run as root to avoid Console logging sudo commands.
+	echo "Attempting to re-run as root..."
+	curl https://raw.github.com/jridgewell/Unlock/dynamic/install.sh -o install.sh
+	chmod +x install.sh
+	echo "--------------------------"
+	echo ""
 
-		sudo bash ./install.sh
-		rm install.sh
-		exit
+	sudo bash ./install.sh
+	rm install.sh
+	exit
 fi
 
 vname() { echo `diskutil cs info $1 | grep "Volume Name" | cut -d : -f 2 | sed -e 's/^\ *//'`; }
@@ -29,65 +28,64 @@ ask() {
 	read yn < /dev/tty
 	# Make user input lowercase
 	answer=`echo ${yn}| awk '{print tolower($0)}'`
-	if [[ $answer = "y" || $answer = "yes" ]]
-		then
-			unlock $1 $name
+	if [[ $answer = "y" || $answer = "yes" ]]; then
+		unlock $1 $name
 	fi
 }
 
 mkdir tmp_install_unlock
 cd tmp_install_unlock
 bool=false
+bootUUID=`diskutil cs info \`mount | grep " / " | cut -d " " -f 1\` | grep UUID | grep -v LV | cut -d : -f 2 | sed -e 's/^\ *//'`
 
 # http://stackoverflow.com/questions/893585/how-to-parse-xml-in-bash#answer-2608159
 rdom() { local IFS=\> ; read -d \< E C ;}
 CSVs=`diskutil cs list -plist`
 echo $CSVs | while rdom; do
-	if [[ $E = "string" ]]
+	if [[ $E = "string" ]]; then
 	# All the important stuff is inside the "string" elements
-		then
-			echo "$C"
+		echo "$C"
 	fi
 done | \
 while read LINE; do
 # Loop through all found LVGs, LVFs, LVs
-	if $bool
+	if $bool; then
 	# If this is a LV's UUID, ask if they want to unlock it
-		then
+		if [ $bootUUID != $LINE ]; then
+		# Don't ask about the boot volume, File Vault will take care of that one
 			ask $LINE
+		fi
 	fi
-	if [[ $LINE = "LV" ]]
+	if [[ $LINE = "LV" ]]; then
 	# If true, the next line will be a LV's UUID
-		then
-			bool=true
-		else
-			bool=false
+		bool=true
+	else
+		bool=false
 	fi
 done
 
-if [ -e "UUIDs.txt" ]
+if [ -e "UUIDs.txt" ]; then
 # We need to set up the LaunchDaemon script to unlock the volumes
-	then
-		echo "--------------------------"
-		echo ""
-		echo "Installing..."
-		curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
-		curl "https://raw.github.com/jridgewell/Unlock/dynamic/files/name.ridgewell.unlock-start.sh" >> name.ridgewell.unlock.sh
-		while read LINE; do
-			echo "		diskutil cs unlockVolume UUID -passphrase \"\`security 2>&1 >/dev/null find -ga UUID \"/Library/Keychains/System.keychain\" | cut -d '\"' -f 2\`\" 2>/dev/null" | sed "s/UUID/$LINE/g" >> name.ridgewell.unlock.sh
-		done < "UUIDs.txt"
-		curl "https://raw.github.com/jridgewell/Unlock/dynamic/files/name.ridgewell.unlock-end.sh" >> name.ridgewell.unlock.sh
-		rm "UUIDs.txt"
+	echo "--------------------------"
+	echo ""
+	echo "Installing..."
+	curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
+	curl "https://raw.github.com/jridgewell/Unlock/dynamic/files/name.ridgewell.unlock-start.sh" >> name.ridgewell.unlock.sh
+	while read LINE; do
+		echo "		diskutil cs unlockVolume UUID -passphrase \"\`security 2>&1 >/dev/null find -ga UUID \"/Library/Keychains/System.keychain\" | cut -d '\"' -f 2\`\" 2>/dev/null" | sed "s/UUID/$LINE/g" >> name.ridgewell.unlock.sh
+	done < "UUIDs.txt"
+	curl "https://raw.github.com/jridgewell/Unlock/dynamic/files/name.ridgewell.unlock-end.sh" >> name.ridgewell.unlock.sh
+	rm "UUIDs.txt"
 
-		mv ./* /Library/LaunchDaemons/
-		chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
-		chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.sh
-		chmod 644 /Library/LaunchDaemons/name.ridgewell.unlock.plist
-		chmod 755 /Library/LaunchDaemons/name.ridgewell.unlock.sh
+	mv ./* /Library/LaunchDaemons/
+	chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
+	chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.sh
+	chmod 644 /Library/LaunchDaemons/name.ridgewell.unlock.plist
+	chmod 755 /Library/LaunchDaemons/name.ridgewell.unlock.sh
 
-		echo "--------------------------"
-		echo ""
-		echo "Installed!"
+	echo "--------------------------"
+	echo ""
+	echo "Installed!"
 fi
 
 # Cleanup
