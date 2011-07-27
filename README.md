@@ -13,7 +13,9 @@ Like a many power users, I have two disks in my Macbook Pro. My startup volume i
 
 ## Install
 
-- Run `bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/install.sh)` in the terminal
+- Run 
+`bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/install.sh)`
+in the terminal
 - You will be asked for your login password.
 - Follow the prompts
   * The script will find all Core Storage encrypted volumes connected to your computer.
@@ -23,7 +25,9 @@ Like a many power users, I have two disks in my Macbook Pro. My startup volume i
 
 ## Uninstall
 
-- Run `bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/uninstall.sh)` in the terminal (you'll be asked for your login password) to remove all traces from the system.
+- Run
+`bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/uninstall.sh)`
+in the terminal (you'll be asked for your login password) to remove all traces from the system.
 
 ## Problems?
 
