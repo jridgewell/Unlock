@@ -26,7 +26,7 @@ Run [this][install] in the terminal.
 
 ## Uninstall
 
-- Run [this][uninstall] in the terminal (you'll be asked for your login password) to remove all traces from the system.
+Run [this][uninstall] in the terminal (you'll be asked for your login password) to remove all traces from the system.
 
     bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/uninstall.sh)
 
