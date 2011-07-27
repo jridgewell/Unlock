@@ -15,7 +15,7 @@ Like a many power users, I have two disks in my Macbook Pro. My startup volume i
 
 - Run [this][install] in the terminal.
 
-     `bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/install.sh)`
+     bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/install.sh)
 
 - You will be asked for your login password.
 - Follow the prompts
@@ -28,7 +28,7 @@ Like a many power users, I have two disks in my Macbook Pro. My startup volume i
 
 - Run [this][uninstall] in the terminal (you'll be asked for your login password) to remove all traces from the system.
 
-`bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/uninstall.sh)`
+     bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/uninstall.sh)
 
 
 ## Problems?
