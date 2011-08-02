@@ -9,7 +9,7 @@ Unlock allows the system to unlock and mount Core Storage encrypted volumes duri
 
 ## Why?
 
-Like a many power users, I have two disks in my Macbook Pro. My startup volume is on a SSD and all of my home folder is on a second disk drive. Lion's FileVault 2 supports unlocking and loading the startup volume, but doesn't support unlocking any other volume until a user has logged in. Encrypting my home drive locked me out of my user account, and required me to log in to and out of another user just to log in in as myself. This script solves that problem by unlocking Core Storage volumes (e.g., my home disk) before Lion tries to load user data.
+Like a many power users, I have two disks in my Macbook Pro. My startup volume is on a SSD and all of my home folder is on a second disk drive. Mac OS X Lion's FileVault 2 supports unlocking and mounting the startup volume, but doesn't support unlocking any other volume until a user has logged in. After encrypting my home drive and restarting, I was locked out of my user account and to log in to and out of another user just to log in in as myself. This script solves that problem by unlocking Core Storage volumes (e.g., my home disk) without the need for another user account. Simply put, it allows me to log in like normal.
 
 ## Install
 
