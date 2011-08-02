@@ -1,8 +1,8 @@
 #!/bin/bash
-if [ "`whoami`" != "root" ]; then
+if [[ `whoami` != "root" ]]; then
 # Run as root to avoid Console logging sudo commands.
 	echo "Attempting to re-run as root..."
-	curl https://raw.github.com/jridgewell/Unlock/dynamic/install.sh -o install.sh
+	curl https://raw.github.com/jridgewell/Unlock/master/install.sh -o install.sh
 	chmod +x install.sh
 	echo "--------------------------"
 	echo ""
@@ -33,6 +33,10 @@ ask() {
 	fi
 }
 
+if [ -d tmp_install_unlock ]; then
+# In case command was exited before
+	rm -r tmp_install_unlock
+fi
 mkdir tmp_install_unlock
 cd tmp_install_unlock
 bool=false
@@ -49,18 +53,18 @@ echo $CSVs | while rdom; do
 done | \
 while read LINE; do
 # Loop through all found LVGs, LVFs, LVs
-	if $bool; then
+	if $boolUUID; then
 	# If this is a LV's UUID, ask if they want to unlock it
-		if [ $bootUUID != $LINE ]; then
+		if [[ $bootUUID != $LINE ]]; then
 		# Don't ask about the boot volume, File Vault will take care of that one
 			ask $LINE
 		fi
 	fi
 	if [[ $LINE = "LV" ]]; then
 	# If true, the next line will be a LV's UUID
-		bool=true
+		boolUUID=true
 	else
-		bool=false
+		boolUUID=false
 	fi
 done
 
@@ -70,11 +74,11 @@ if [ -e "UUIDs.txt" ]; then
 	echo ""
 	echo "Installing..."
 	curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
-	curl "https://raw.github.com/jridgewell/Unlock/dynamic/files/name.ridgewell.unlock-start.sh" >> name.ridgewell.unlock.sh
+	curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock-start.sh" >> name.ridgewell.unlock.sh
 	while read LINE; do
 		echo "		diskutil cs unlockVolume UUID -passphrase \"\`security 2>&1 >/dev/null find -ga UUID \"/Library/Keychains/System.keychain\" | cut -d '\"' -f 2\`\" 2>/dev/null" | sed "s/UUID/$LINE/g" >> name.ridgewell.unlock.sh
 	done < "UUIDs.txt"
-	curl "https://raw.github.com/jridgewell/Unlock/dynamic/files/name.ridgewell.unlock-end.sh" >> name.ridgewell.unlock.sh
+	curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock-end.sh" >> name.ridgewell.unlock.sh
 	rm "UUIDs.txt"
 
 	mv ./* /Library/LaunchDaemons/
