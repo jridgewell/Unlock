@@ -39,8 +39,8 @@ if [ -d tmp_install_unlock ]; then
 fi
 mkdir tmp_install_unlock
 cd tmp_install_unlock
-bool=false
-bootUUID=`diskutil cs info \`mount | grep " / " | cut -d " " -f 1\` | grep UUID | grep -v LV | cut -d : -f 2 | sed -e 's/^\ *//'`
+boolUUID=false
+bootUUID=`diskutil cs info \`mount | grep " / " | cut -d " " -f 1\` 2>/dev/null | grep UUID | grep -v LV | cut -d : -f 2 | sed -e 's/^\ *//'`
 
 # http://stackoverflow.com/questions/893585/how-to-parse-xml-in-bash#answer-2608159
 rdom() { local IFS=\> ; read -d \< E C ;}
