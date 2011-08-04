@@ -49,17 +49,17 @@ to remove all traces from the system.
 
 ## Q&A
 
-### Does this encrypt the drive?
+### Does this encrypt my drive?
 No, this script only unlocks volumes during boot. You must encrypt the volumes
 yourself before using this script.
 ### Will this work after updates?
 Yes, this script will continue to work even after updates. Because Apple doesn't
 delete LaunchDaemons during updates, the script will always be there to run on
-startup. And because the script's only requirment is Apple's own `diskutil`
-program and Apple's supported commands, the script will continue to work.
+startup. And because the script uses Apple's own programs and supported
+commands, the script will continue to work.
 ### What if Apple fixes the bug?
 If Apple does fix the bug, the script will not harm nor interfere in anyway.
-Because of the way `diskutil` works, the worst case scenario is a warning
+Because of the way the script works, the worst case scenario is a warning
 appearing in the console logs. Run the [uninstall][uninstall] script and
 everything will go back to normal.
 
