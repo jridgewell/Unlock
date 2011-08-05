@@ -62,7 +62,10 @@ If Apple does fix the bug, the script will not harm nor interfere in anyway.
 Because of the way the script works, the worst case scenario is a warning
 appearing in the console logs. Run the [uninstall][uninstall] script and
 everything will go back to normal.
-
+### I'm user A. What if user B logs in? Will my home drive be mounted?
+Yes it will. The script is not aware of who is logging in and I don't know of a
+way to make it aware other than making it a User LaunchDaemon, which won't work.
+A [pull request][pull] implementing this would be greatly appreciated.
 
 ## Problems?
 
