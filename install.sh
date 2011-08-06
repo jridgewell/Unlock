@@ -75,8 +75,8 @@ if [ -e "UUIDs.txt" ]; then
 	echo "--------------------------"
 	echo ""
 	echo "Installing..."
-	curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
-	curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock" >> name.ridgewell.unlock
+	curl "https://raw.github.com/jridgewell/Unlock/objc/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
+	curl "https://raw.github.com/jridgewell/Unlock/objc/files/name.ridgewell.unlock" >> name.ridgewell.unlock
 
 	mv ./* /Library/LaunchDaemons/
 	chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
