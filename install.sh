@@ -2,7 +2,7 @@
 if [[ `whoami` != "root" ]]; then
 # Run as root to avoid Console logging sudo commands.
 	echo "Attempting to re-run as root..."
-	curl https://raw.github.com/jridgewell/Unlock/master/install.sh -o install.sh
+	curl https://raw.github.com/jridgewell/Unlock/objc/install.sh -o install.sh
 	chmod +x install.sh
 	echo "--------------------------"
 	echo ""
