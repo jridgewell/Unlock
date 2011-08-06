@@ -6,7 +6,7 @@ while [[ $err == "password has been deleted." ]]; do
 	err=`cmd`
 done
 sudo rm /Library/LaunchDaemons/name.ridgewell.unlock.plist
-sudo rm /Library/LaunchDaemons/name.ridgewell.unlock.sh
+sudo rm /Library/LaunchDaemons/name.ridgewell.unlock
 
 echo "--------------------------"
 echo ""
