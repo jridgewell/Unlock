@@ -12,6 +12,9 @@ if [[ `whoami` != "root" ]]; then
 	exit
 fi
 
+mkdir tmp_install_unlock
+cd tmp_install_unlock
+
 # We need to set up the LaunchDaemon script to unlock the volumes
 echo "--------------------------"
 echo ""
@@ -53,9 +56,6 @@ if [ -d tmp_install_unlock ]; then
 # In case command was exited before
 	rm -r tmp_install_unlock
 fi
-mkdir tmp_install_unlock
-cd tmp_install_unlock
-boolInstall=false
 boolUUID=false
 bootUUID=`diskutil cs info \`mount | grep " / " | cut -d " " -f 1\` 2>/dev/null | grep UUID | grep -v LV | cut -d : -f 2 | sed -e 's/^\ *//'`
 
