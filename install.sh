@@ -2,35 +2,33 @@
 if [[ `whoami` != "root" ]]; then
 # Run as root to avoid Console logging sudo commands.
 	echo "Attempting to re-run as root..."
-	#curl https://raw.github.com/jridgewell/Unlock/objc/install.sh -o install.sh
+	curl https://raw.github.com/jridgewell/Unlock/objc/install.sh -o install.sh
 	chmod +x install.sh
-	echo "--------------------------"
-	echo ""
 
 	sudo bash ./install.sh
-	#rm install.sh
+	rm install.sh
 	exit
 fi
 
 mkdir tmp_install_unlock
 cd tmp_install_unlock
 
-# We need to set up the LaunchDaemon script to unlock the volumes
 echo "--------------------------"
 echo ""
-echo "Installing..."
+echo "Downloading..."
+# Download the needed files.
 curl "https://raw.github.com/jridgewell/Unlock/objc/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
 curl "https://raw.github.com/jridgewell/Unlock/objc/files/name.ridgewell.unlock" >> name.ridgewell.unlock
 
+echo "--------------------------"
+echo ""
+echo "Installing..."
+# Move to the LaunchDaemons dir, and set permissions
 mv ./* /Library/LaunchDaemons/
 chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
 chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock
 chmod 644 /Library/LaunchDaemons/name.ridgewell.unlock.plist
 chmod 755 /Library/LaunchDaemons/name.ridgewell.unlock
-
-echo "--------------------------"
-echo ""
-echo "Installed!"
 
 vname() { echo `diskutil cs info $1 | grep "Volume Name" | cut -d : -f 2 | sed -e 's/^\ *//'`; }
 unlock() {
@@ -88,3 +86,7 @@ done
 # Cleanup
 cd ..
 rm -r tmp_install_unlock
+
+echo "--------------------------"
+echo ""
+echo "Installed!"
