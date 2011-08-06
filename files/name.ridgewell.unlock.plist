@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>Label</key>
-		<string>name.ridgewell.unlock</string>
-		<key>LaunchOnlyOnce</key>
-		<true/>
-		<key>OnDemand</key>
-		<false/>
-		<key>Program</key>
-		<string>/Library/LaunchDaemons/name.ridgewell.unlock.sh</string>
-		<key>RunAtLoad</key>
-		<true/>
-		<key>ServiceDescription</key>
-		<string>Unlock encrypted volumes at boot</string>
-	</dict>
+<dict>
+	<key>Label</key>
+	<string>name.ridgewell.unlock</string>
+	<key>LaunchOnlyOnce</key>
+	<true/>
+	<key>OnDemand</key>
+	<false/>
+	<key>Program</key>
+	<string>/Library/LaunchDaemons/name.ridgewell.unlock</string>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>ServiceDescription</key>
+	<string>Unlock encrypted volumes at boot</string>
+</dict>
 </plist>

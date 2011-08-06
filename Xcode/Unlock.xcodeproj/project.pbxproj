@@ -27,7 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		21A1480713EDEF5C00484A43 /* Unlock */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Unlock; sourceTree = BUILT_PRODUCTS_DIR; };
+		21A1480713EDEF5C00484A43 /* Unlock */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = Unlock; path = name.ridgewell.unlock; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A1480B13EDEF5C00484A43 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		21A1480E13EDEF5C00484A43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21A1481113EDEF5C00484A43 /* Unlock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unlock-Prefix.pch"; sourceTree = "<group>"; };
