@@ -33,31 +33,31 @@
 	OSStatus status = SecItemCopyMatching((CFDictionaryRef) query, (CFTypeRef*) &results);
 	
 	if (status == errSecSuccess) {
-		CFIndex resultCount = CFArrayGetCount(results);		
+		CFIndex resultCount = CFArrayGetCount(results);
 		
 		for (CFIndex i = 0; i < resultCount; i++) {
 			NSMutableArray* volumeAndPassword = [[NSMutableArray alloc] init];
 			NSData* passwordData = nil;
 			NSDictionary*  result = (NSDictionary*) CFArrayGetValueAtIndex(results, i);
-			NSString* account = [result objectForKey:@"acct"];
-			
+			NSString* account = [[NSString alloc] initWithData:[result objectForKey:@"acct"] encoding:NSUTF8StringEncoding];
+
 			[query release];
 			query = [self queryOfItemWithAccount:account WithService:service];
 			SecItemCopyMatching((CFDictionaryRef) query, (CFTypeRef*) &passwordData);
-			
+
 			NSString* password = [[[NSString alloc] initWithData:passwordData encoding:NSUTF8StringEncoding] autorelease];
-			
+
 			[volumeAndPassword addObject:account];
 			[volumeAndPassword addObject:password];
 			[volumesAndPasswords addObject:volumeAndPassword];
 		}
 	} else {
 		NSLog(@"Error: SecItemCopyMatching returned %d!", status);
-	}		
-	
+	}
+
 	[query release];
 	CFRelease(results);
-	
+
 	return volumesAndPasswords;
 }
 
@@ -68,7 +68,7 @@
 	[query setObject:(id) kSecMatchLimitAll forKey:(id) kSecMatchLimit];
 	[query setObject:(id) kCFBooleanTrue forKey:(id) kSecReturnAttributes];
 	[query setObject:(id) kCFBooleanTrue forKey:(id) kSecReturnRef];
-	
+
 	return query;
 }
 
@@ -78,8 +78,8 @@
 	[query setObject:account forKey:(id) kSecAttrAccount];
 	[query setObject:service forKey:(id) kSecAttrService];
 	[query setObject:(id) kCFBooleanTrue forKey:(id) kSecReturnData];
-	
-	return query;
+
+return query;
 }
 
 @end
