@@ -45,7 +45,7 @@
 			query = [self queryOfItemWithAccount:account WithService:service];
 			SecItemCopyMatching((CFDictionaryRef) query, (CFTypeRef*) &passwordData);
 
-			NSString* password = [[[NSString alloc] initWithData:passwordData encoding:NSUTF8StringEncoding] autorelease];
+			NSString* password = [[NSString alloc] initWithData:passwordData encoding:NSUTF8StringEncoding];
 
 			[volumeAndPassword addObject:account];
 			[volumeAndPassword addObject:password];
