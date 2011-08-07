@@ -39,7 +39,7 @@
 			NSMutableArray* volumeAndPassword = [[NSMutableArray alloc] init];
 			NSData* passwordData = nil;
 			NSDictionary*  result = (NSDictionary*) CFArrayGetValueAtIndex(results, i);
-			NSString* account = [[NSString alloc] initWithData:[result objectForKey:@"acct"] encoding:NSUTF8StringEncoding];
+			NSString* account = [result objectForKey:@"acct"];
 
 			[query release];
 			query = [self queryOfItemWithAccount:account WithService:service];
