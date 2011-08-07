@@ -79,7 +79,7 @@
 	[query setObject:service forKey:(id) kSecAttrService];
 	[query setObject:(id) kCFBooleanTrue forKey:(id) kSecReturnData];
 
-return query;
+	return query;
 }
 
 @end
