@@ -21,7 +21,6 @@ int main (int argc, const char * argv[])
 		NSString* uuid = [volumeAndPassword objectAtIndex:0];
 		NSString* passphrase = [volumeAndPassword objectAtIndex:1];
 		[Diskutil unlockVolume: uuid WithPassphrase: passphrase];
-		[uuid release];
 		[passphrase release];
 		[volumeAndPassword release];
 	}
