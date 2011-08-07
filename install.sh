@@ -2,7 +2,7 @@
 if [[ `whoami` != "root" ]]; then
 # Run as root to avoid Console logging sudo commands.
 	echo "Attempting to re-run as root..."
-	curl https://raw.github.com/jridgewell/Unlock/objc/install.sh -o install.sh
+	curl https://raw.github.com/jridgewell/Unlock/master/install.sh -o install.sh
 	chmod +x install.sh
 
 	sudo bash ./install.sh
@@ -17,8 +17,8 @@ echo "--------------------------"
 echo ""
 echo "Downloading..."
 # Download the needed files.
-curl "https://raw.github.com/jridgewell/Unlock/objc/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
-curl "https://raw.github.com/jridgewell/Unlock/objc/files/name.ridgewell.unlock" >> name.ridgewell.unlock
+curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
+curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock" >> name.ridgewell.unlock
 
 echo "--------------------------"
 echo ""
