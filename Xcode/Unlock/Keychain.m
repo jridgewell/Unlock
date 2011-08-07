@@ -56,7 +56,8 @@
 	}
 
 	[query release];
-	CFRelease(results);
+    if (results != nil)
+        CFRelease(results);
 
 	return volumesAndPasswords;
 }
