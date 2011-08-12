@@ -52,6 +52,14 @@ to remove all traces from the system.
 ### Does this encrypt my drive?
 No, this program only unlocks volumes during boot. You must encrypt the volumes
 yourself before using this program.
+### Where is the passphrase stored?
+The passphrase is stored in the encrypted System Keychain. Only users with administrative access to the computer will be able to retrieve the passphrase, but all user's will be able to unlock the volume (see next question).
+### I'm user A. What if user B logs in? Will my home drive be mounted?
+Yes it will. The program is not aware of who is logging in and I don't know of a
+way to make it aware other than making it a User LaunchDaemon, which won't work.
+A [pull request][pull] implementing this would be greatly appreciated.
+### Is my data really secure?
+Yes. Because the System Keychain is tied to its system, your drive can't be pulled out of the computer and unlocked using another computer. Only users of your own system will be able to unlock the volume, and even then, inbuilt security measures will prevent nonadministrative users from getting any data.
 ### Will this work after updates?
 Yes, this program will continue to work even after updates. Because Apple doesn't
 delete LaunchDaemons during updates, the program will always be there to run on
@@ -62,10 +70,6 @@ If Apple does fix the bug, the program will not harm nor interfere in anyway.
 Because of the way the program works, the worst case scenario is a warning
 appearing in the console logs. Run the [uninstall][uninstall] script and
 everything will go back to normal.
-### I'm user A. What if user B logs in? Will my home drive be mounted?
-Yes it will. The program is not aware of who is logging in and I don't know of a
-way to make it aware other than making it a User LaunchDaemon, which won't work.
-A [pull request][pull] implementing this would be greatly appreciated.
 
 ## Problems?
 
