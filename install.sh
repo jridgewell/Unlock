@@ -33,7 +33,7 @@ chmod 755 /Library/LaunchDaemons/name.ridgewell.unlock
 vname() { echo `diskutil cs info $1 | grep "Volume Name" | cut -d : -f 2 | sed -e 's/^\ *//'`; }
 unlock() {
 	echo "What is the passphrase used to encrypt ${2}?"
-	read password < /dev/tty
+	read -s password < /dev/tty
 	# Add the password to the System keychain
 	security add -a "${1}" -D "Encrypted Volume Password" -l "Unlock: ${2}" -s "name.ridgewell.unlock" \
 		-w "${password}" -T "" -T "/Library/LaunchDaemons/name.ridgewell.unlock" -U "/Library/Keychains/System.keychain"
