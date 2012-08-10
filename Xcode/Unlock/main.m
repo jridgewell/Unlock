@@ -25,8 +25,8 @@ int main (int argc, const char * argv[])
 		[volumeAndPassword release];
 	}
 
-	[keychain release];
 	[volumesAndPasswords release];
+	[keychain release];
 
 	[pool drain];
     return 0;
