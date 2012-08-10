@@ -27,7 +27,7 @@ need for another user account. Simply put, it allows me to log in like normal.
 
 Run [this][install] in the terminal.
 
-    bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/install.sh)
+    curl https://raw.github.com/jridgewell/Unlock/master/install.sh | bash
 
 - You will be asked for your login password.
 - Follow the prompts
@@ -44,7 +44,7 @@ Run [this][install] in the terminal.
 Run [this][uninstall] in the terminal (you'll be asked for your login password)
 to remove all traces from the system.
 
-    bash <(curl -s https://raw.github.com/jridgewell/Unlock/master/uninstall.sh)
+    curl https://raw.github.com/jridgewell/Unlock/master/uninstall.sh | bash
 
 
 ## Q&A
