@@ -18,7 +18,7 @@ echo ""
 echo "Downloading..."
 # Download the needed files.
 curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock.plist" -o name.ridgewell.unlock.plist
-curl "https://raw.github.com/jridgewell/Unlock/master/files/name.ridgewell.unlock" -o name.ridgewell.unlock
+curl "https://github.com/downloads/jridgewell/Unlock/name.ridgewell.unlock" --location -o name.ridgewell.unlock
 
 echo "--------------------------"
 echo ""
