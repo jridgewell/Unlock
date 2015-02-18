@@ -4,13 +4,13 @@
 <dict>
 	<key>Label</key>
 	<string>name.ridgewell.unlock</string>
-	<key>LaunchOnlyOnce</key>
-	<true/>
-	<key>OnDemand</key>
-	<false/>
 	<key>Program</key>
 	<string>/Library/LaunchDaemons/name.ridgewell.unlock</string>
+	<key>KeepAlive</key>
+	<false/>
 	<key>RunAtLoad</key>
+	<true/>
+	<key>StartOnMount</key>
 	<true/>
 	<key>ServiceDescription</key>
 	<string>Unlock encrypted volumes at boot</string>
