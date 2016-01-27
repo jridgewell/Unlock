@@ -24,11 +24,12 @@ echo "--------------------------"
 echo ""
 echo "Installing..."
 # Move to the LaunchDaemons dir, and set permissions
-mv ./* /Library/LaunchDaemons/
+mv name.ridgewell.unlock.plist /Library/LaunchDaemons/
+mv name.ridgewell.unlock /Library/PrivilegedHelperTools/
 chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
-chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock
+chown root:wheel /Library/PrivilegedHelperTools/name.ridgewell.unlock
 chmod 644 /Library/LaunchDaemons/name.ridgewell.unlock.plist
-chmod 755 /Library/LaunchDaemons/name.ridgewell.unlock
+chmod 755 /Library/PrivilegedHelperTools/name.ridgewell.unlock
 
 vname() { echo `diskutil cs info $1 | grep "Volume Name" | cut -d : -f 2 | sed -e 's/^\ *//'`; }
 unlock() {
