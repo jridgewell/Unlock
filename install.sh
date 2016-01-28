@@ -37,7 +37,7 @@ unlock() {
 	read -s password < /dev/tty
 	# Add the password to the System keychain
 	security add -a "${1}" -D "Encrypted Volume Password" -l "Unlock: ${2}" -s "name.ridgewell.unlock" \
-		-w "${password}" -T "" -T "/Library/LaunchDaemons/name.ridgewell.unlock" -U "/Library/Keychains/System.keychain"
+		-w "${password}" -T "" -T "/Library/PrivilegedHelperTools/name.ridgewell.unlock" -U "/Library/Keychains/System.keychain"
 }
 ask() {
 	# Get the name of the volume with UUID
