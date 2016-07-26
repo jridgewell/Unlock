@@ -24,6 +24,7 @@ echo "--------------------------"
 echo ""
 echo "Installing..."
 # Move to the LaunchDaemons dir, and set permissions
+mkdir -p /Library/PrivilegedHelperTools/
 mv name.ridgewell.unlock.plist /Library/LaunchDaemons/
 mv name.ridgewell.unlock /Library/PrivilegedHelperTools/
 chown root:wheel /Library/LaunchDaemons/name.ridgewell.unlock.plist
