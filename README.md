@@ -4,6 +4,11 @@ Unlock
 https://github.com/jridgewell/unlock
 
 
+## APFS Volumes
+
+If your computer has APFS volumes, Unlock will **not** work on your computer.
+Try https://github.com/openwall-com-au/BootUnlock instead.
+
 ## Description
 
 Unlock allows the system to unlock and mount Core Storage encrypted volumes
